@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Map | Oxim Travel</title>
+    
+    <meta name="description" content="Explore India interactively. Discover destinations, regions, and curated routes on the Oxim interactive travel map.">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/pages/map.css">
+</head>
+<body class="map-page-body">
+
+    <!-- Navigation (Glass, always scrolled on map view) -->
+    <nav class="navbar scrolled map-navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="brand-logo">OXI<span>M</span></a>
+            
+            <ul class="nav-links">
+                <li><a href="destinations.html">Destinations</a></li>
+                <li><a href="packages.html">Packages</a></li>
+                <li><a href="itinerary.html">Trip Builder</a></li>
+                <li><a href="founder.html">Founder</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark/Light Mode">
+                    <i class="fa-solid fa-sun"></i>
+                </button>
+                <a href="destinations.html" class="btn btn-outline">Exit Map</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Map Interface -->
+    <main class="map-interface">
+        
+        <!-- Sidebar: List & Controls -->
+        <aside class="map-sidebar glass-panel">
+            <div class="sidebar-header">
+                <h2>Explore <span class="text-accent">India</span></h2>
+                <p>Select a region or browse the list to view on map.</p>
+            </div>
+            
+            <div class="map-controls">
+                <select id="map-region-filter" class="map-select">
+                    <option value="all">All Regions</option>
+                    <option value="north-east">North-East India (Primary)</option>
+                    <option value="north india">North India</option>
+                    <option value="south india">South India</option>
+                </select>
+                
+                <button id="toggle-route-btn" class="btn btn-outline btn-sm">
+                    <i class="fa-solid fa-route"></i> Show Assam Route
+                </button>
+            </div>
+
+            <div class="map-list-container">
+                <ul id="map-destinations-list" class="map-dest-list">
+                    <!-- List items injected via JS -->
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Map Container -->
+        <div id="interactive-map" class="interactive-map-container">
+            <!-- Leaflet map injected here -->
+        </div>
+
+        <!-- Floating Legend/Info -->
+        <div class="map-legend glass-panel">
+            <div class="legend-item">
+                <span class="legend-dot dot-dest"></span> Destination
+            </div>
+            <div class="legend-item">
+                <span class="legend-dot dot-route"></span> Route Path
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="data/destinations.js"></script>
+    <script src="js/pages/map.js"></script>
+</body>
+</html>
