@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destinations | Oxim Travel</title>
+    
+    <meta name="description" content="Explore India's most incredible destinations with Oxim. From Assam and the North-East to the corners of the subcontinent.">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/pages/destinations.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar scrolled">
+        <div class="container nav-container">
+            <a href="index.html" class="brand-logo">OXI<span>M</span></a>
+            
+            <ul class="nav-links">
+                <li><a href="destinations.html" class="active">Destinations</a></li>
+                <li><a href="packages.html">Packages</a></li>
+                <li><a href="itinerary.html">Trip Builder</a></li>
+                <li><a href="founder.html">Founder</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark/Light Mode">
+                    <i class="fa-solid fa-sun"></i>
+                </button>
+                <a href="booking.html" class="btn btn-primary">Plan Journey</a>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content" class="page-padding">
+        
+        <!-- Page Header -->
+        <header class="destinations-header">
+            <div class="container">
+                <h1 class="page-title">Explore <span class="text-accent">Destinations</span></h1>
+                <p class="page-desc">Filter and discover the perfect location for your next journey.</p>
+            </div>
+        </header>
+
+        <section class="destinations-content">
+            <div class="container">
+                <div class="layout-grid">
+                    
+                    <!-- Filters Sidebar -->
+                    <aside class="filters-sidebar glass-panel">
+                        <div class="filter-header">
+                            <h3>Filters</h3>
+                            <button id="reset-filters" class="btn-text">Reset</button>
+                        </div>
+                        
+                        <form id="filter-form">
+                            <div class="filter-group">
+                                <label for="search-text">Search</label>
+                                <input type="text" id="search-text" placeholder="Location, State...">
+                            </div>
+
+                            <div class="filter-group">
+                                <label for="region-select">Region</label>
+                                <select id="region-select">
+                                    <option value="">All Regions</option>
+                                    <option value="North-East">North-East India</option>
+                                    <option value="North India">North India</option>
+                                    <option value="South India">South India</option>
+                                    <option value="West India">West India</option>
+                                    <option value="East India">East India</option>
+                                </select>
+                            </div>
+
+                            <div class="filter-group">
+                                <label>Travel Style</label>
+                                <div class="checkbox-group">
+                                    <label class="check-label"><input type="checkbox" name="style" value="nature"> Nature & Wildlife</label>
+                                    <label class="check-label"><input type="checkbox" name="style" value="heritage"> Heritage & Culture</label>
+                                    <label class="check-label"><input type="checkbox" name="style" value="adventure"> Adventure</label>
+                                    <label class="check-label"><input type="checkbox" name="style" value="spiritual"> Spiritual</label>
+                                    <label class="check-label"><input type="checkbox" name="style" value="family"> Family Friendly</label>
+                                </div>
+                            </div>
+                        </form>
+                    </aside>
+
+                    <!-- Results Grid -->
+                    <div class="results-container">
+                        <div class="results-header">
+                            <span id="results-count">Loading destinations...</span>
+                            <div class="sort-group">
+                                <label for="sort-select">Sort by:</label>
+                                <select id="sort-select">
+                                    <option value="popular">Most Popular</option>
+                                    <option value="name-asc">Name (A-Z)</option>
+                                    <option value="name-desc">Name (Z-A)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Grid populated dynamically by JS -->
+                        <div class="destinations-grid" id="destinations-grid">
+                            <!-- JS Template Injection -->
+                        </div>
+                        
+                        <!-- Empty State (Hidden by default) -->
+                        <div id="no-results" class="no-results" style="display: none;">
+                            <i class="fa-solid fa-map-location-dot"></i>
+                            <h3>No destinations found</h3>
+                            <p>Try adjusting your filters or search terms.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer (Same as index) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="brand-logo">OXI<span>M</span></a>
+                    <p>Building a new way to discover India, beginning from Assam.</p>
+                </div>
+                <!-- Simplified for brevity, will match global footer in production -->
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="founder.html">Sajal Baruah</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/theme.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="data/destinations.js"></script>
+    <script src="js/pages/destinations.js"></script>
+</body>
+</html>
