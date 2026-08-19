@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destination Detail | Oxim Travel</title>
+    
+    <meta name="description" content="Discover detailed travel information, itineraries, and guides for your selected destination.">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Leaflet for free/open map rendering -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/pages/destinations.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="brand-logo">OXI<span>M</span></a>
+            
+            <ul class="nav-links">
+                <li><a href="destinations.html" class="active">Destinations</a></li>
+                <li><a href="packages.html">Packages</a></li>
+                <li><a href="itinerary.html">Trip Builder</a></li>
+                <li><a href="founder.html">Founder</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Dark/Light Mode">
+                    <i class="fa-solid fa-sun"></i>
+                </button>
+                <a href="booking.html" class="btn btn-primary">Plan Journey</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content injected via JS based on URL ?id=parameter -->
+    <main id="main-content">
+        
+        <!-- Loading State -->
+        <div id="loading-state" class="loading-state container">
+            <div class="spinner"></div>
+            <p>Loading destination details...</p>
+        </div>
+
+        <!-- Rendered Destination Container (Hidden initially) -->
+        <div id="destination-content" style="display: none;">
+            
+            <!-- Hero Section -->
+            <section class="dest-hero">
+                <div class="dest-hero-bg">
+                    <img id="dest-hero-img" src="" alt="Destination Hero" class="hero-image">
+                    <div class="dest-hero-overlay"></div>
+                </div>
+                <div class="container dest-hero-content">
+                    <div class="breadcrumbs">
+                        <a href="index.html">Home</a> / 
+                        <a href="destinations.html">Destinations</a> / 
+                        <span id="breadcrumb-current"></span>
+                    </div>
+                    <h1 id="dest-title" class="hero-title"></h1>
+                    <p id="dest-subtitle" class="dest-subtitle"></p>
+                    <div class="dest-meta-tags" id="dest-tags">
+                        <!-- Tags injected here -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Destination Navigation (Sticky) -->
+            <div class="dest-nav glass-panel">
+                <div class="container">
+                    <ul>
+                        <li><a href="#overview" class="active">Overview</a></li>
+                        <li><a href="#gallery">Gallery</a></li>
+                        <li><a href="#map-section">Map</a></li>
+                        <li><a href="#activities">Activities</a></li>
+                    </ul>
+                    <button id="btn-wishlist" class="btn btn-outline btn-sm"><i class="fa-regular fa-heart"></i> Save</button>
+                </div>
+            </div>
+
+            <!-- Main Detail Layout -->
+            <section class="dest-details-section">
+                <div class="container">
+                    <div class="dest-grid">
+                        
+                        <!-- Left Column (Content) -->
+                        <div class="dest-main-content">
+                            
+                            <div id="overview" class="content-block">
+                                <h2>Overview</h2>
+                                <p id="dest-long-desc"></p>
+                            </div>
+
+                            <div id="gallery" class="content-block">
+                                <h2>Gallery</h2>
+                                <div class="dest-gallery" id="dest-gallery-grid">
+                                    <!-- Images injected here -->
+                                </div>
+                            </div>
+
+                            <div id="map-section" class="content-block">
+                                <h2>Location Map</h2>
+                                <div id="map-container" class="map-container">
+                                    <!-- Leaflet map injected here -->
+                                </div>
+                            </div>
+
+                            <div id="activities" class="content-block">
+                                <h2>Popular Activities</h2>
+                                <ul class="activity-list" id="dest-activities">
+                                    <!-- Activities injected here -->
+                                </ul>
+                            </div>
+
+                        </div>
+
+                        <!-- Right Column (Sidebar Widgets) -->
+                        <aside class="dest-sidebar">
+                            
+                            <div class="widget glass-panel">
+                                <h3>At a Glance</h3>
+                                <ul class="glance-list">
+                                    <li>
+                                        <i class="fa-solid fa-cloud-sun"></i>
+                                        <div>
+                                            <strong>Best Time</strong>
+                                            <span id="glance-time"></span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <i class="fa-regular fa-clock"></i>
+                                        <div>
+                                            <strong>Duration</strong>
+                                            <span id="glance-duration"></span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <i class="fa-solid fa-wallet"></i>
+                                        <div>
+                                            <strong>Budget</strong>
+                                            <span id="glance-budget"></span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <i class="fa-solid fa-map-pin"></i>
+                                        <div>
+                                            <strong>Region</strong>
+                                            <span id="glance-region"></span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="widget call-to-action glass-panel text-center">
+                                <h3>Ready to Explore?</h3>
+                                <p>Add this destination to your custom itinerary or view curated packages.</p>
+                                <div class="action-buttons">
+                                    <a href="itinerary.html" class="btn btn-primary full-width" id="add-itinerary-btn">Add to Trip Builder</a>
+                                    <a href="packages.html" class="btn btn-outline full-width">View Packages</a>
+                                </div>
+                            </div>
+
+                        </aside>
+
+                    </div>
+                </div>
+            </section>
+            
+        </div>
+
+        <!-- Error State (Hidden by default) -->
+        <div id="error-state" class="error-state container text-center" style="display: none;">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            <h2>Destination Not Found</h2>
+            <p>We couldn't locate the destination you are looking for.</p>
+            <a href="destinations.html" class="btn btn-primary">Browse All Destinations</a>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Oxim Expeditions. Founded by Sajal Baruah.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="data/destinations.js"></script>
+    <script src="js/pages/destinations.js"></script>
+</body>
+</html>
