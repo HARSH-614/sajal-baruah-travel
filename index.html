@@ -5,16 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oxim | Explore Beyond the Expected</title>
     
-    <!-- SEO & Meta Tags -->
     <meta name="description" content="Oxim is a premium travel platform founded by Sajal Baruah, helping you discover Assam, the North-East, and destinations across India.">
     <meta name="author" content="Sajal Baruah">
     
-    <!-- Fonts & Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Stylesheets -->
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/pages/home.css">
 </head>
 <body>
 
@@ -42,9 +40,322 @@
         </div>
     </nav>
 
-    <!-- MAIN CONTENT INJECTION POINT (PHASE 2) -->
+    <!-- MAIN CONTENT -->
     <main id="main-content">
-        <!-- The cinematic homepage will be built here -->
+        
+        <!-- 1. Cinematic Hero -->
+        <section id="hero" class="hero-section">
+            <div class="hero-bg">
+                <!-- Using a high-quality placeholder for a cinematic Assam mist/mountain view -->
+                <img src="https://images.unsplash.com/photo-1544383835-bda2bc66a55d?q=80&w=2000&auto=format&fit=crop" alt="Mist over mountains in North East India" class="hero-image lazy-load">
+                <div class="hero-overlay"></div>
+            </div>
+            
+            <div class="container hero-content">
+                <h1 class="hero-title">
+                    <span class="reveal-text">From the mist of <span class="text-accent">Assam</span></span><br>
+                    <span class="reveal-text delay-1">to the edge of India.</span>
+                </h1>
+                <p class="hero-subtitle reveal-text delay-2">Travel is not simply moving. It is discovering places, culture, and yourself.</p>
+                
+                <div class="hero-actions reveal-text delay-3">
+                    <a href="#search-explore" class="btn btn-primary">Explore Destinations</a>
+                    <a href="itinerary.html" class="btn btn-outline">Plan My Trip</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Search / Explore Interface -->
+        <section id="search-explore" class="search-section">
+            <div class="container">
+                <div class="glass-panel search-panel">
+                    <form class="search-form" id="main-search-form" action="destinations.html" method="GET">
+                        <div class="search-group">
+                            <label for="destination"><i class="fa-solid fa-location-dot"></i> Where to?</label>
+                            <input type="text" id="destination" name="query" placeholder="Assam, Kerala, Rajasthan...">
+                        </div>
+                        <div class="search-group">
+                            <label for="date"><i class="fa-solid fa-calendar-days"></i> When?</label>
+                            <input type="month" id="date" name="month">
+                        </div>
+                        <div class="search-group">
+                            <label for="style"><i class="fa-solid fa-compass"></i> Travel Style</label>
+                            <select id="style" name="style">
+                                <option value="">Any Style</option>
+                                <option value="nature">Nature & Wildlife</option>
+                                <option value="heritage">Heritage & Culture</option>
+                                <option value="adventure">Adventure</option>
+                                <option value="spiritual">Spiritual</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary search-btn"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Assam Spotlight -->
+        <section id="assam-spotlight" class="spotlight-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Our Roots: <span class="text-accent">Assam</span></h2>
+                    <p class="section-desc">Begin your journey in the land of the red river and blue hills.</p>
+                    <a href="destinations.html?region=assam" class="view-all">View All Assam <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                
+                <div class="spotlight-grid">
+                    <a href="destination.html?id=kaziranga" class="destination-card large-card">
+                        <img src="https://images.unsplash.com/photo-1624806992066-5ffcf7ca186b?q=80&w=800&auto=format&fit=crop" alt="Kaziranga Rhino" loading="lazy">
+                        <div class="card-overlay">
+                            <h3>Kaziranga National Park</h3>
+                            <p>Wildlife • UNESCO Heritage</p>
+                        </div>
+                    </a>
+                    <a href="destination.html?id=majuli" class="destination-card">
+                        <img src="https://images.unsplash.com/photo-1596783049104-e5926ec0379f?q=80&w=600&auto=format&fit=crop" alt="Majuli River Island" loading="lazy">
+                        <div class="card-overlay">
+                            <h3>Majuli</h3>
+                            <p>Culture • Largest River Island</p>
+                        </div>
+                    </a>
+                    <a href="destination.html?id=guwahati" class="destination-card">
+                        <img src="https://images.unsplash.com/photo-1662970597116-3e785b9b1836?q=80&w=600&auto=format&fit=crop" alt="Kamakhya Temple Guwahati" loading="lazy">
+                        <div class="card-overlay">
+                            <h3>Guwahati</h3>
+                            <p>Spiritual • Gateway City</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. North-East Spotlight -->
+        <section id="ne-spotlight" class="spotlight-section alternate-bg">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">The Unexplored <span class="text-accent">North-East</span></h2>
+                    <p class="section-desc">Venture into the pristine landscapes of the Seven Sister States.</p>
+                </div>
+                
+                <div class="carousel-container">
+                    <div class="card-carousel" id="ne-carousel">
+                        <!-- Cards -->
+                        <a href="destination.html?id=tawang" class="dest-mini-card">
+                            <img src="https://images.unsplash.com/photo-1626014903706-538965f7c327?q=80&w=400&auto=format&fit=crop" alt="Tawang, Arunachal Pradesh" loading="lazy">
+                            <div class="mini-card-info">
+                                <h4>Tawang</h4>
+                                <span>Arunachal Pradesh</span>
+                            </div>
+                        </a>
+                        <a href="destination.html?id=shillong" class="dest-mini-card">
+                            <img src="https://images.unsplash.com/photo-1623869675781-80aa31012a5a?q=80&w=400&auto=format&fit=crop" alt="Shillong, Meghalaya" loading="lazy">
+                            <div class="mini-card-info">
+                                <h4>Shillong</h4>
+                                <span>Meghalaya</span>
+                            </div>
+                        </a>
+                        <a href="destination.html?id=dzukou" class="dest-mini-card">
+                            <img src="https://images.unsplash.com/photo-1669830501869-7c4ea9bf0fbd?q=80&w=400&auto=format&fit=crop" alt="Dzukou Valley, Nagaland" loading="lazy">
+                            <div class="mini-card-info">
+                                <h4>Dzukou Valley</h4>
+                                <span>Nagaland</span>
+                            </div>
+                        </a>
+                        <a href="destination.html?id=loktak" class="dest-mini-card">
+                            <img src="https://images.unsplash.com/photo-1634812613531-1e967a1f5926?q=80&w=400&auto=format&fit=crop" alt="Loktak Lake, Manipur" loading="lazy">
+                            <div class="mini-card-info">
+                                <h4>Loktak Lake</h4>
+                                <span>Manipur</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Featured Indian Destinations -->
+        <section id="explore-india" class="spotlight-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Discover <span class="text-accent">India</span></h2>
+                    <p class="section-desc">From the high Himalayas to the southern coasts.</p>
+                    <a href="travel-map.html" class="view-all"><i class="fa-solid fa-map-location-dot"></i> Open Interactive Map</a>
+                </div>
+                
+                <div class="india-grid">
+                    <a href="destination.html?id=kerala-backwaters" class="india-card">
+                        <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?q=80&w=600&auto=format&fit=crop" alt="Kerala Backwaters" loading="lazy">
+                        <div class="india-card-content">
+                            <h4>Kerala</h4>
+                            <p>Nature • Backwaters</p>
+                        </div>
+                    </a>
+                    <a href="destination.html?id=jaipur" class="india-card">
+                        <img src="https://images.unsplash.com/photo-1477587458883-47145ed94245?q=80&w=600&auto=format&fit=crop" alt="Jaipur Forts" loading="lazy">
+                        <div class="india-card-content">
+                            <h4>Rajasthan</h4>
+                            <p>Heritage • Desert</p>
+                        </div>
+                    </a>
+                    <a href="destination.html?id=ladakh" class="india-card">
+                        <img src="https://images.unsplash.com/photo-1590740924046-d419cebf86b1?q=80&w=600&auto=format&fit=crop" alt="Ladakh Mountains" loading="lazy">
+                        <div class="india-card-content">
+                            <h4>Ladakh</h4>
+                            <p>Adventure • Mountains</p>
+                        </div>
+                    </a>
+                    <a href="destination.html?id=varanasi" class="india-card">
+                        <img src="https://images.unsplash.com/photo-1561361513-2d000a50f0dc?q=80&w=600&auto=format&fit=crop" alt="Varanasi Ghats" loading="lazy">
+                        <div class="india-card-content">
+                            <h4>Uttar Pradesh</h4>
+                            <p>Spiritual • Culture</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Featured Travel Packages -->
+        <section id="packages" class="packages-section alternate-bg">
+            <div class="container">
+                <div class="section-header center">
+                    <h2 class="section-title">Curated <span class="text-accent">Experiences</span></h2>
+                    <p class="section-desc">Expertly crafted itineraries for unforgettable journeys.</p>
+                </div>
+                
+                <div class="package-grid">
+                    <!-- Package 1 -->
+                    <div class="package-card glass-panel">
+                        <div class="package-img">
+                            <img src="https://images.unsplash.com/photo-1526715161427-d7790eb9321c?q=80&w=600&auto=format&fit=crop" alt="Assam Tea Gardens" loading="lazy">
+                            <span class="badge featured">Featured</span>
+                        </div>
+                        <div class="package-content">
+                            <div class="package-meta">
+                                <span><i class="fa-regular fa-clock"></i> 6 Days / 5 Nights</span>
+                                <span><i class="fa-solid fa-layer-group"></i> Heritage & Wildlife</span>
+                            </div>
+                            <h3>The Assam Classic Trail</h3>
+                            <p>Experience the magic of Kaziranga wildlife and centuries-old tea estates.</p>
+                            <div class="package-footer">
+                                <div class="price">
+                                    <span class="label">Indicative Price</span>
+                                    <h4>₹28,500 <span class="per-person">/ person</span></h4>
+                                </div>
+                                <a href="package.html?id=assam-classic" class="btn btn-outline">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Package 2 -->
+                    <div class="package-card glass-panel">
+                        <div class="package-img">
+                            <img src="https://images.unsplash.com/photo-1517427677505-61105a46a485?q=80&w=600&auto=format&fit=crop" alt="Spiti Valley" loading="lazy">
+                        </div>
+                        <div class="package-content">
+                            <div class="package-meta">
+                                <span><i class="fa-regular fa-clock"></i> 9 Days / 8 Nights</span>
+                                <span><i class="fa-solid fa-layer-group"></i> High Altitude Adventure</span>
+                            </div>
+                            <h3>Himalayan Expedition: Spiti</h3>
+                            <p>A thrilling road trip through the rugged and spiritual landscapes of Himachal.</p>
+                            <div class="package-footer">
+                                <div class="price">
+                                    <span class="label">Indicative Price</span>
+                                    <h4>₹35,000 <span class="per-person">/ person</span></h4>
+                                </div>
+                                <a href="package.html?id=spiti-expedition" class="btn btn-outline">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="center-action">
+                    <a href="packages.html" class="btn btn-primary">Browse All Packages</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. Founder Section (Sajal Baruah) -->
+        <section id="founder-story" class="founder-section">
+            <div class="container">
+                <div class="founder-grid">
+                    <div class="founder-visual">
+                        <!-- Holographic/Glass Frame styling will be applied to this container via CSS -->
+                        <div class="glass-frame">
+                            <!-- Fallback professional image until actual photo is uploaded -->
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=600&auto=format&fit=crop" alt="Sajal Baruah - Founder" class="founder-img" loading="lazy">
+                            <div class="founder-badge">
+                                <i class="fa-solid fa-signature"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="founder-content">
+                        <h2 class="section-title">The Vision Behind <span class="text-accent">Oxim</span></h2>
+                        <h3 class="founder-name">Sajal Baruah</h3>
+                        <p class="founder-role">Founder & Creator</p>
+                        
+                        <div class="founder-philosophy">
+                            <p>"I built Oxim with a simple belief: Travel is not simply moving from one place to another. It is discovering places, people, culture, nature, and ultimately, yourself.</p>
+                            <p>Starting from my roots in Assam, I wanted to create a platform that merges the pristine, untouched beauty of the North-East with the vast diversity of India, all powered by a seamless, futuristic digital experience."</p>
+                        </div>
+                        
+                        <a href="founder.html" class="btn btn-outline">Read Full Story</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. Interactive Journey Builder Preview -->
+        <section id="itinerary-preview" class="itinerary-preview-section alternate-bg">
+            <div class="container">
+                <div class="itinerary-banner glass-panel">
+                    <div class="banner-content">
+                        <h2>Build Your Own <span class="text-accent">Custom Journey</span></h2>
+                        <p>Don't want a pre-made package? Use our advanced itinerary builder to handpick destinations, set your budget, and generate a day-by-day travel plan.</p>
+                        <a href="trip-builder.html" class="btn btn-primary"><i class="fa-solid fa-wand-magic-sparkles"></i> Launch Trip Builder</a>
+                    </div>
+                    <div class="banner-visual">
+                        <!-- CSS conceptual illustration of a timeline -->
+                        <div class="timeline-concept">
+                            <div class="node active"><span>Day 1</span></div>
+                            <div class="line"></div>
+                            <div class="node"><span>Day 2</span></div>
+                            <div class="line"></div>
+                            <div class="node"><span>Day 3</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. Sample Reviews (Clearly marked for development) -->
+        <section id="reviews" class="reviews-section">
+            <div class="container">
+                <div class="section-header center">
+                    <h2 class="section-title">Traveler <span class="text-accent">Journeys</span></h2>
+                    <p class="section-desc">Sample development data - Architecture for future verified reviews.</p>
+                </div>
+                
+                <div class="reviews-grid">
+                    <div class="review-card glass-panel">
+                        <div class="review-stars">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+                        <p class="review-text">"The Assam Classic Trail was incredibly organized. The platform made it so easy to understand exactly what we were getting into."</p>
+                        <div class="reviewer">
+                            <div class="avatar">S</div>
+                            <div>
+                                <h4>Sample User</h4>
+                                <span>Travelled to Assam</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Additional review cards can be dynamically loaded here -->
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <!-- Footer -->
@@ -90,7 +401,7 @@
             <div class="footer-bottom">
                 <p>&copy; 2026 Oxim Expeditions. Founded by Sajal Baruah. Fictional project for development purposes.</p>
                 <div class="social-links">
-                    <!-- Social icons can be added here -->
+                    <!-- Social icons -->
                 </div>
             </div>
         </div>
@@ -99,5 +410,6 @@
     <!-- Scripts -->
     <script src="js/theme.js"></script>
     <script src="js/navigation.js"></script>
+    <script src="js/pages/home.js"></script>
 </body>
 </html>
