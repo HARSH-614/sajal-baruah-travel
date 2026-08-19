@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curated Travel Packages | Oxim</title>
+    <meta name="description" content="Browse Oxim's curated travel packages across India. Find the perfect itinerary for your next adventure.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/pages/packages.css">
+</head>
+<body>
+
+    <nav class="navbar scrolled">
+        <div class="container nav-container">
+            <a href="index.html" class="brand-logo">OXI<span>M</span></a>
+            <ul class="nav-links">
+                <li><a href="destinations.html">Destinations</a></li>
+                <li><a href="packages.html" class="active">Packages</a></li>
+                <li><a href="itinerary.html">Trip Builder</a></li>
+                <li><a href="founder.html">Founder</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-toggle"><i class="fa-solid fa-sun"></i></button>
+                <a href="compare.html" class="btn btn-outline btn-sm"><i class="fa-solid fa-code-compare"></i> Compare</a>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content" class="page-padding">
+        <header class="packages-header">
+            <div class="container text-center">
+                <h1 class="page-title">Curated <span class="text-accent">Journeys</span></h1>
+                <p class="page-desc">Expertly designed itineraries balancing adventure, culture, and relaxation.</p>
+            </div>
+        </header>
+
+        <section class="packages-content">
+            <div class="container">
+                <div class="layout-grid">
+                    
+                    <!-- Filters Sidebar -->
+                    <aside class="filters-sidebar glass-panel">
+                        <div class="filter-header">
+                            <h3>Filters</h3>
+                            <button id="reset-pkg-filters" class="btn-text">Reset</button>
+                        </div>
+                        
+                        <form id="pkg-filter-form">
+                            <div class="filter-group">
+                                <label for="pkg-region">Region</label>
+                                <select id="pkg-region">
+                                    <option value="">All Regions</option>
+                                    <option value="North-East">North-East India</option>
+                                    <option value="North India">North India</option>
+                                    <option value="South India">South India</option>
+                                </select>
+                            </div>
+
+                            <div class="filter-group">
+                                <label for="pkg-style">Travel Style</label>
+                                <select id="pkg-style">
+                                    <option value="">Any Style</option>
+                                    <option value="adventure">Adventure & Trekking</option>
+                                    <option value="heritage">Heritage & Culture</option>
+                                    <option value="nature">Nature & Wildlife</option>
+                                </select>
+                            </div>
+
+                            <div class="filter-group">
+                                <label for="pkg-duration">Duration</label>
+                                <select id="pkg-duration">
+                                    <option value="">Any Duration</option>
+                                    <option value="short">1 - 4 Days</option>
+                                    <option value="medium">5 - 8 Days</option>
+                                    <option value="long">9+ Days</option>
+                                </select>
+                            </div>
+                        </form>
+                    </aside>
+
+                    <!-- Results Area -->
+                    <div class="results-container">
+                        <div class="results-header">
+                            <span id="pkg-count">Loading packages...</span>
+                        </div>
+
+                        <!-- Grid -->
+                        <div class="package-grid" id="packages-grid">
+                            <!-- Injected via JS -->
+                        </div>
+                        
+                        <div id="no-pkg-results" class="no-results" style="display: none;">
+                            <i class="fa-solid fa-suitcase"></i>
+                            <h3>No packages found</h3>
+                            <p>Try adjusting your filter criteria.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Oxim Expeditions. Founded by Sajal Baruah.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/theme.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="data/packages.js"></script>
+    <script src="js/pages/packages.js"></script>
+</body>
+</html>
